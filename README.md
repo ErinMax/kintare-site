@@ -22,6 +22,7 @@ Publica el contenido de `dist/` en un alojamiento de archivos estáticos. El sit
 - Contacto real: usuario de Discord `erin_max_`, con botón para copiar.
 - Idioma persistido únicamente en el navegador. Sin formularios, analítica añadida ni captación de datos.
 - Menú móvil, navegación por teclado, movimiento reducido y aviso de privacidad.
+- Logo que responde al cursor, clic, toque y teclado dentro de un área aislada del texto; indicador animado de pestañas, navegación vinculada a la sección visible y confirmación al copiar el contacto.
 
 Las descripciones de la plataforma se basan en la estructura y superficies existentes de KintareApps revisadas durante este trabajo. No se afirma disponibilidad pública de funciones ni compatibilidad integral con juegos. La fecha 2024 y Puebla proceden de la información facilitada por el usuario.
 

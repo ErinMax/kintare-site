@@ -75,6 +75,7 @@ function setLanguage(next) {
   document.querySelector('.brand').setAttribute('aria-label',language === 'es' ? 'Kintare, inicio' : 'Kintare, home');
   document.querySelector('.platform-tabs').setAttribute('aria-label',language === 'es' ? 'Áreas de la plataforma' : 'Platform areas');
   document.querySelector('.hero-logo').alt = language === 'es' ? 'Emblema de Kintare: una estrella crema y negra sobre fondo dorado' : 'Kintare emblem: a cream and black star on a gold background';
+  document.querySelector('.logo-stage').setAttribute('aria-label',language === 'es' ? 'Animar emblema de Kintare' : 'Animate the Kintare emblem');
   document.querySelectorAll('.close-dialog').forEach(button=>button.setAttribute('aria-label',language === 'es' ? 'Cerrar' : 'Close'));
   updateMenuLabel();
   try { localStorage.setItem('kintare-language',language); } catch {}
@@ -94,6 +95,7 @@ document.addEventListener('keydown',event=>{if(event.key === 'Escape') closeMenu
 document.addEventListener('click',event=>{if(!event.target.closest('.header')) closeMenu();});
 const tabs=[...document.querySelectorAll('[role="tab"]')];
 function selectTab(tab,focus=false){
+  document.querySelector('.platform-tabs').style.setProperty('--tab-index',String(tabs.indexOf(tab)));
   tabs.forEach(item=>{const selected=item === tab;item.setAttribute('aria-selected',String(selected));item.tabIndex=selected ? 0 : -1;document.getElementById(item.getAttribute('aria-controls')).hidden=!selected;});
   if(focus) tab.focus();
 }
@@ -105,4 +107,71 @@ document.querySelector('[data-privacy]').addEventListener('click',()=>privacyDia
 document.querySelectorAll('dialog').forEach(dialog=>{dialog.querySelector('.close-dialog').addEventListener('click',()=>dialog.close());dialog.addEventListener('click',event=>{if(event.target===dialog){const r=dialog.getBoundingClientRect();if(event.clientX<r.left || event.clientX>r.right || event.clientY<r.top || event.clientY>r.bottom)dialog.close();}});});
 let toastTimer;
 function toast(message){const el=document.querySelector('.toast');el.textContent=message;el.classList.add('visible');clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove('visible'),4200);}
-document.querySelectorAll('.copy-discord').forEach(button=>button.addEventListener('click',async()=>{try{await navigator.clipboard.writeText('erin_max_');toast(language === 'es' ? 'Usuario copiado: erin_max_' : 'Username copied: erin_max_');}catch{toast(language === 'es' ? 'Copia este usuario: erin_max_' : 'Copy this username: erin_max_');}}));
+const copyFeedbackTimers = new WeakMap();
+document.querySelectorAll('.copy-discord').forEach(button=>button.addEventListener('click',async()=>{
+  try{
+    await navigator.clipboard.writeText('erin_max_');
+    toast(language === 'es' ? 'Usuario copiado: erin_max_' : 'Username copied: erin_max_');
+    clearTimeout(copyFeedbackTimers.get(button));
+    button.classList.add('is-copied');
+    button.textContent = language === 'es' ? 'Copiado' : 'Copied';
+    copyFeedbackTimers.set(button,setTimeout(()=>{
+      button.classList.remove('is-copied');
+      button.textContent = language === 'es' ? spanish['join.copy'] : english['join.copy'];
+    },2200));
+  }catch{toast(language === 'es' ? 'Copia este usuario: erin_max_' : 'Copy this username: erin_max_');}
+}));
+
+// Pointer motion belongs to the logo stage, never to the complete card.
+const logoStage = document.querySelector('.logo-stage');
+const logoImage = document.querySelector('.hero-logo');
+const motionPreference = matchMedia('(prefers-reduced-motion: reduce)');
+const finePointer = matchMedia('(hover: hover) and (pointer: fine)');
+let logoFrame = 0;
+let pointerPosition;
+let emblemAnimation;
+function resetLogo() {
+  cancelAnimationFrame(logoFrame);
+  logoFrame = 0;
+  logoStage.classList.remove('is-tracking');
+  ['--logo-x','--logo-y','--logo-angle'].forEach(property=>logoStage.style.removeProperty(property));
+}
+logoStage.addEventListener('pointermove',event=>{
+  if(motionPreference.matches || !finePointer.matches || event.pointerType === 'touch') return;
+  const rect = logoStage.getBoundingClientRect();
+  pointerPosition = {
+    x:Math.max(-1,Math.min(1,(event.clientX-rect.left)/rect.width*2-1)),
+    y:Math.max(-1,Math.min(1,(event.clientY-rect.top)/rect.height*2-1))
+  };
+  logoStage.classList.add('is-tracking');
+  if(logoFrame) return;
+  logoFrame = requestAnimationFrame(()=>{
+    logoStage.style.setProperty('--logo-x',`${pointerPosition.x*6}px`);
+    logoStage.style.setProperty('--logo-y',`${pointerPosition.y*6}px`);
+    logoStage.style.setProperty('--logo-angle',`${pointerPosition.x*4}deg`);
+    logoFrame = 0;
+  });
+},{passive:true});
+logoStage.addEventListener('pointerleave',resetLogo);
+logoStage.addEventListener('pointercancel',resetLogo);
+logoStage.addEventListener('blur',resetLogo);
+logoStage.addEventListener('click',()=>{
+  if(motionPreference.matches) return;
+  emblemAnimation?.cancel();
+  emblemAnimation = logoImage.animate([{rotate:'0deg'},{rotate:'5deg',offset:.35},{rotate:'-3deg',offset:.7},{rotate:'0deg'}],{duration:650,easing:'ease-in-out'});
+});
+motionPreference.addEventListener('change',()=>{resetLogo();if(motionPreference.matches)emblemAnimation?.cancel();});
+
+// Keep the navigation in sync with the section currently being read.
+const sectionLinks = [...navigation.querySelectorAll('a')];
+if('IntersectionObserver' in window){
+  const sectionObserver = new IntersectionObserver(entries=>{
+    entries.filter(entry=>entry.isIntersecting).forEach(entry=>{
+      sectionLinks.forEach(link=>{
+        if(link.hash === `#${entry.target.id}`) link.setAttribute('aria-current','location');
+        else link.removeAttribute('aria-current');
+      });
+    });
+  },{rootMargin:'-15% 0px -55% 0px',threshold:0});
+  sectionLinks.forEach(link=>{const section=document.querySelector(link.hash);if(section)sectionObserver.observe(section);});
+}

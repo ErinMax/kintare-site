@@ -2,6 +2,14 @@
 
 Sitio estático en español e inglés. Usa únicamente el logo oficial proporcionado por el usuario. HTML, CSS y JavaScript sin dependencias de ejecución ni servicios de aplicación.
 
+Sitio público: https://erinmax.github.io/kintare-site/
+
+Enlace en inglés para presentar el proyecto: https://erinmax.github.io/kintare-site/?lang=en
+
+Repositorio: https://github.com/ErinMax/kintare-site
+
+Cada cambio publicado en la rama `main` despliega automáticamente `dist/` mediante GitHub Pages. El primer proveedor de alojamiento no pudo recuperar el registro creado; esta versión utiliza GitHub Pages.
+
 ## Uso
 
 Publica el contenido de `dist/` en un alojamiento de archivos estáticos. El sitio no requiere compilación ni variables de entorno. También puedes abrir `dist/index.html` directamente; para probar el portapapeles, sirve el sitio en localhost o HTTPS.

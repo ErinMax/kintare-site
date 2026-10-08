@@ -51,7 +51,7 @@ Manrope, alojada localmente. Licencia SIL Open Font License, incluida junto a la
 
 El logo es el archivo proporcionado por el usuario. No se incorporan imágenes generadas. El enlace a Discord abre la aplicación web; para conversar, se debe añadir el usuario indicado. No se simula una invitación a un servidor ni se inventa un correo.
 
-Las capturas `dist/assets/accounts-home.png` y `accounts-login.png` proceden de las páginas públicas de https://accounts.kintarestudio.com/ y https://accounts.kintarestudio.com/auth/login, capturadas el 7 de octubre de 2026 a 1280 × 800. Se revisaron antes de incorporarlas: no muestran cuentas, correos, identificadores privados ni credenciales. Los puntos interactivos son una explicación de esas imágenes; no ejecutan el acceso real.
+Las capturas `dist/assets/accounts-player-editor.png` (1112 × 587) y `accounts-server-setup.png` (776 × 724) proceden de la sesión de Accounts que abrió el usuario el 8 de octubre de 2026. Muestran personalización del jugador (skin, modelo, vista previa 3D, capa y nombre) y el formulario de configuración de servidor Minecraft. Se recortaron las imágenes originales para excluir UUID, historial, identidad de la cuenta y navegación administrativa. El formulario no contiene contraseñas, hosts reales ni datos de conexión; no se creó ningún servidor. Los puntos explican las opciones visibles, sin afirmar que la captura pruebe su funcionamiento o compatibilidad integral.
 
 ## Editar las secciones nuevas
 

@@ -7,10 +7,10 @@
     'choice.play':'Play and explore','choice.play.note':'Find worlds and people.','choice.create':'Create something of my own','choice.create.note':'Give an idea a home.',
     'choice.community':'Bring my people together','choice.community.note':'Run a community.','choice.worlds':'Shared worlds','choice.identity':'Identity and characters','choice.tools':'Tools to organize',
     'choice.solo':'On my own','choice.friends':'With friends','choice.group':'With my community','journey.result':'YOUR PATH',
-    'tour.tag':'INSIDE KINTARE','tour.title':'This is where<br>the experience starts.','tour.intro':'A look at Kintare Accounts, with screenshots from the real website. Choose a screen and explore its points.',
-    'tour.home':'The entrance','tour.login':'Your access','tour.real':'REAL SCREENSHOTS · OCT 2026','tour.expand':'Enlarge ↗',
-    'tour.visit':'Visit Kintare Accounts ↗','tour.note':'Kintare Accounts interface. Captured on October 7, 2026, without account data. Access depends on platform requirements.',
-    'tour.captureTitle':'Kintare Accounts · Real interface','tour.captureNote':'Captured on October 7, 2026 · Kintare',
+    'tour.tag':'INSIDE KINTARE','tour.title':'Your character.<br>Your spaces.','tour.intro':'Player customization and tools for organizing servers. Explore these real Kintare Accounts views.',
+    'tour.player':'Your character','tour.servers':'Your servers','tour.real':'REAL SCREENSHOTS · OCT 2026','tour.expand':'Enlarge ↗',
+    'tour.visit':'Visit Kintare Accounts ↗','tour.note':'Kintare Accounts, October 8, 2026. Views of the player editor and server setup, cropped to exclude private account data. Game integrations remain in development and validation.',
+    'tour.captureTitle':'Kintare Accounts · Real interface','tour.captureNote':'Captured on October 8, 2026 · Kintare',
     'gallery.tag':'MADE BY THE COMMUNITY','gallery.title':'Room for<br>your next idea.','gallery.intro':'Worlds, mods, characters and gatherings. We want to make space for projects by the people who build communities.',
     'gallery.empty':'The first story could be yours.','gallery.note':'The gallery is open to proposals. Each published project will include a description, authorized images and credit for its creators.','gallery.cta':'Suggest a project ↗',
     'profile.tag':'TRY AN IDEA','profile.title':'An identity<br>that feels like yours.','profile.intro':'Play with this card’s name, color and emblem. A small illustration of what having your own place can mean.',
@@ -26,7 +26,7 @@
     'roadmap.note':'Reviewed on October 7, 2026. “Foundation implemented” describes existing work; it does not mean every feature is publicly available. No release date has been announced for the next steps.',
     'journal.tag':'KINTARE JOURNAL','journal.title':'Show the work.<br>Share the journey.','journal.date':'OCTOBER 7, 2026','journal.entryTitle':'A window into what we’re building.',
     'journal.entryCopy':'We opened this website to explain Kintare more clearly: what we want to create, where the Accounts experience begins and how each person can take part.',
-    'journal.more':'Read the note','journal.body':'This first entry brings together screenshots of the public Accounts interface and a project map. The interest journey and identity card are website demonstrations. Requests are prepared here and sent on Discord.',
+    'journal.more':'Read the note','journal.body':'This presentation brings together views of Accounts tools and a project map. The interest journey and identity card are website demonstrations. Requests are prepared here and sent on Discord.',
     'journal.body2':'The journal will be a place to publish concrete progress, decisions and shared experiences, with dates and context.','journal.cta':'Explore the screenshots ↗',
     'team.tag':'FROM PUEBLA','team.title':'People making<br>room for others.','team.lead':'Kintare began in 2024 with an idea: playing can also be a way to build connections.',
     'team.body':'We’re developing a shared foundation so player identity, worlds and community tools can work together. The aim is to make organizing an experience leave more time to enjoy it.',
@@ -71,22 +71,22 @@
     if(event.currentTarget.dataset.platform==='worlds') document.querySelector('#tab-worlds').click();
   });
   const screens = {
-    home:{src:'assets/accounts-home.png',address:'accounts.kintarestudio.com',alt:['Portada real de Kintare Accounts','Real Kintare Accounts homepage'],points:[
-      {x:70,y:41,title:['Una puerta común','A shared entrance'],copy:['Accounts presenta la base de identidad de Kintare: cuentas, perfiles y acceso a servicios de juego.','Accounts introduces Kintare’s identity foundation: accounts, profiles and access to game services.']},
-      {x:53,y:63,title:['Volver a tu cuenta','Return to your account'],copy:['Desde «Sign In» comienza el inicio de sesión. La siguiente pantalla ofrece acceso con Discord y passkey.','“Sign In” starts the sign-in flow. The next screen offers Discord and passkey access.']},
-      {x:12,y:65,title:['Una interfaz, un primer paso','An interface, a first step'],copy:['Esta captura muestra la página pública real, no un panel simulado. Puedes abrir Accounts para consultar las condiciones de acceso actuales.','This screenshot shows the real public page, not a simulated dashboard. Open Accounts to check current access requirements.']}
+    player:{src:'assets/accounts-player-editor.png',width:1112,height:587,address:'Kintare Accounts / Players',alt:['Editor real de jugador: skin, vista previa 3D y capa','Real player editor: skin, 3D preview and cape'],points:[
+      {x:29,y:37,title:['Tu skin, tu personaje','Your skin, your character'],copy:['El editor permite seleccionar una skin PNG y elegir entre los modelos Classic y Slim. Esta captura muestra el perfil de Erin.','The editor lets you select a PNG skin and choose Classic or Slim models. This capture shows Erin’s profile.']},
+      {x:63,y:40,title:['Verlo antes de jugar','See it before you play'],copy:['La vista previa 3D muestra el aspecto del personaje junto a su nombre de jugador. Las capturas se toman de la herramienta real de personalización.','The 3D preview shows the character’s appearance alongside their player name. These screenshots come from the real customization tool.']},
+      {x:96,y:37,title:['También los detalles','The details too'],copy:['La sección Cape ofrece una carga de capa en PNG. Aquí puedes ver las herramientas para personalizar el aspecto del jugador en un mismo lugar.','The Cape section offers PNG cape upload. Here you can see the tools for customizing player appearance in one place.']}
     ]},
-    login:{src:'assets/accounts-login.png',address:'accounts.kintarestudio.com/auth/login',alt:['Inicio de sesión real de Kintare Accounts con Discord y passkey','Real Kintare Accounts sign-in with Discord and passkey'],points:[
-      {x:66,y:51,title:['Acceso con Discord','Discord sign-in'],copy:['La pantalla ofrece «Continue with Discord». En la configuración capturada, Discord es un requisito para iniciar sesión.','The screen offers “Continue with Discord”. In the captured configuration, Discord is required to sign in.']},
-      {x:66,y:60,title:['Tu passkey','Your passkey'],copy:['Accounts también muestra una opción de passkey. Su uso depende de que tu cuenta y dispositivo tengan una credencial configurada.','Accounts also shows a passkey option. Using it depends on an existing credential for your account and device.']},
-      {x:66,y:68,title:['Opciones de inicio de sesión','Sign-in options'],copy:['La interfaz permite desplegar el inicio de sesión tradicional. Esta vista guiada explica la captura; no inicia sesión ni recoge credenciales.','The interface lets you expand traditional sign-in. This guided view explains the screenshot; it does not sign you in or collect credentials.']}
+    servers:{src:'assets/accounts-server-setup.png',width:776,height:724,address:'Kintare Accounts / Servers',alt:['Formulario real para configurar un servidor Minecraft, sin datos de conexión','Real Minecraft server setup form, without connection data'],points:[
+      {x:96,y:17,title:['Elegir cómo conectar','Choose how to connect'],copy:['La configuración empieza por el proveedor y el conector de Minecraft. Aquí aparecen las opciones Minecraft direct y RCON para preparar la conexión de un servidor.','Setup starts with the provider and Minecraft connector. Here, Minecraft direct and RCON options help prepare a server connection.']},
+      {x:96,y:48,title:['Preparar la experiencia','Prepare the experience'],copy:['Las opciones reúnen modo de control, canal de versión y software del servidor. Su disponibilidad y funcionamiento dependen de la integración y de la versión.','Options bring together control mode, version channel and server software. Availability and behavior depend on the integration and version.']},
+      {x:96,y:78,title:['Decidir quién participa','Decide who takes part'],copy:['La configuración reúne acceso por invitación o comunidad de Discord, quién administra el servidor y opciones de filtrado del chat. Herramientas para organizar el espacio que comparte tu gente.','Setup brings together invitation or Discord community access, who manages the server and chat filtering options. Tools for organizing the space your people share.']}
     ]}
   };
-  let currentScreen='home',currentPoint=0;
+  let currentScreen='player',currentPoint=0;
   const tourImage=document.querySelector('#tour-image');
   function renderTour() {
     const screen=screens[currentScreen],point=screen.points[currentPoint];
-    tourImage.src=screen.src;tourImage.alt=tr(...screen.alt);
+    tourImage.src=screen.src;tourImage.alt=tr(...screen.alt);tourImage.width=screen.width;tourImage.height=screen.height;
     document.querySelector('#tour-address').textContent=screen.address;
     document.querySelector('#tour-count').textContent=tr(`PUNTO 0${currentPoint+1} / 03`,`POINT 0${currentPoint+1} / 03`);
     document.querySelector('#tour-point-title').textContent=tr(...point.title);
@@ -98,12 +98,18 @@
       [hotspots,list].forEach(parent=>{
         const button=document.createElement('button');button.type='button';button.textContent=String(index+1);
         button.setAttribute('aria-label',`${index+1}. ${tr(...item.title)}`);button.setAttribute('aria-pressed',String(index===currentPoint));
-        if(parent===hotspots){button.className='hotspot';button.style.left=`${item.x}%`;button.style.top=`${item.y}%`;}
+        if(parent===hotspots){
+          button.className='hotspot';
+          const imageRatio=screen.width/screen.height,frameRatio=16/10;
+          const fitX=Math.min(1,imageRatio/frameRatio),fitY=Math.min(1,frameRatio/imageRatio);
+          button.style.left=`${(1-fitX)*50+item.x*fitX}%`;
+          button.style.top=`${(1-fitY)*50+item.y*fitY}%`;
+        }
         button.addEventListener('click',()=>{currentPoint=index;renderTour();const replacement=(parent===hotspots?hotspots:list).children[index];replacement.focus({preventScroll:true});});
         parent.append(button);
       });
     });
-    const full=document.querySelector('#capture-full');full.src=screen.src;full.alt=tourImage.alt;
+    const full=document.querySelector('#capture-full');full.src=screen.src;full.alt=tourImage.alt;full.width=screen.width;full.height=screen.height;
   }
   document.querySelectorAll('[data-screen]').forEach(button=>button.addEventListener('click',()=>{currentScreen=button.dataset.screen;currentPoint=0;renderTour();}));
   document.querySelector('.expand-capture').addEventListener('click',()=>document.querySelector('#capture-dialog').showModal());

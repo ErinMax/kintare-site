@@ -1,0 +1,7 @@
+.openai/
+.sites-runtime/
+.sites-checkout/
+.env
+.env.*
+node_modules/
+*.log

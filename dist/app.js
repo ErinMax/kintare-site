@@ -47,8 +47,8 @@ const english = {
   'join.find':'FIND US ON DISCORD','join.copy':'Copy username','join.open':'Open Discord','join.note':'Add this username as a friend to start a conversation.',
   'footer.tag':'EXPERIENCES THAT BRING US TOGETHER.','footer.top':'Back to top','footer.location':'Built in Puebla, Mexico.','footer.privacy':'Privacy',
   'dialog.title':'Let’s talk about your idea.','dialog.body':'Find erin_max_ on Discord and send a friend request to start a conversation.',
-  'privacy.title':'Your visit, without forms.',
-  'privacy.body':'This is a static presentation website. It includes no forms, user accounts or analytics tools added by Kintare. We only save your language choice in this browser.',
+  'privacy.title':'Your visit, explained.',
+  'privacy.body':'This is a static presentation website. The interest journey, sample card and message composer run in your browser; their answers are not sent to a server. We only save your language choice. We add no analytics and create no accounts from this website.',
   'privacy.body2':'The hosting provider may process technical connection data to serve and protect the website. When you open Discord, its own terms and privacy policies apply.',
   'privacy.contact':'For questions about this website, you can contact erin_max_ on Discord.'
 };
